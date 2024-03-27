@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <a className="navbar-brand" href="index.html"> Crispy Kitchen </a>
+        <Link className="navbar-brand" href="/index.html"> Crispy Kitchen </Link>
 
         <div className="d-lg-none">
           <button
@@ -45,23 +46,23 @@ export default function Home() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <a className="nav-link active" href="index.html">Home</a>
+              <Link className="nav-link active" href="index.html">Home</Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="about.html">Story</a>
+              <Link className="nav-link" href="about.html">Story</Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="menu.html">Menu</a>
+              <Link className="nav-link" href="menu.html">Menu</Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="news.html">Our Updates</a>
+              <Link className="nav-link" href="news.html">Our Updates</Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="contact.html">Contact</a>
+              <Link className="nav-link" href="contact.html">Contact</Link>
             </li>
           </ul>
         </div>
@@ -396,8 +397,7 @@ height={600}
                   <h4 className="mb-0">Seafood Set</h4>
 
                   <span className="price-tag bg-white shadow-lg ms-4"
-                    ><small>$</small>86</span
-                  >
+                    ><small>$</small>86</span>
 
                   <del className="ms-4"><small>$</small>124</del>
 
