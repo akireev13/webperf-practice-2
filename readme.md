@@ -1,5 +1,7 @@
 # nextjs practical assignment
 
+# ONLY HOME PAGE IS FINISHED
+
 ## what is done:
 
 1. Add routes + .tsx files for individual pages (Home, Story, Menu, Our Updates, Contact) from the template
