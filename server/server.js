@@ -11,7 +11,7 @@ app.set("etag", true);
 app.use(compression());
 
 // Serve static files from the parent directory
-app.use(express.static(".."));
+app.use(express.static("../dist"));
 
 // Start the server
 app.listen(port, () => {
