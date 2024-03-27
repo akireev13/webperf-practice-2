@@ -695,7 +695,8 @@ height={600}
     </footer>
     <div
       className="modal fade"
-      id="BookingModal"
+        id="BookingModal"
+        tabIndex={-1}
       aria-labelledby="BookingModal"
       aria-hidden="true"
     >
