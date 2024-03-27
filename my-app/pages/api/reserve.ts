@@ -4,17 +4,20 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    // Extract reservation data from the request body
-    const reservationData = req.body;
-
     try {
+      // Extract form data from the request body
+      const formData = req.body;
+
+      // Construct the FormData object
+      const formDataToSend = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
+
       // Send reservation data to https://httpbin.org/post
       const response = await fetch('https://httpbin.org/post', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(reservationData),
+        body: formDataToSend,
       });
 
       // Parse response from httpbin.org

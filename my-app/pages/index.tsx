@@ -1,8 +1,61 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    people: "",
+    date: "",
+    time: "",
+    message: ""
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch('/api/reserve', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log('Reservation successfully saved!');
+        // Reset form data if needed
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          people: "",
+          date: "",
+          time: "",
+          message: ""
+        });
+      } else {
+        console.error('Failed to save reservation.');
+      }
+    } catch (error) {
+      console.error('Error saving reservation:', error);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+
   return (
     <>
       <Head>
@@ -693,34 +746,16 @@ height={600}
 
       </div>
     </footer>
-    <div
-      className="modal fade"
-        id="BookingModal"
-        tabIndex={-1}
-      aria-labelledby="BookingModal"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog modal-dialog-centered modal-xl">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h3 className="mb-0">Reserve a table</h3>
-
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-
-          <div className="modal-body d-flex flex-column justify-content-center">
-            <div className="booking">
-              <form
-                className="booking-form row"
-                role="form"
-                action="#"
-                method="post"
-              >
+    <div className="modal fade" id="BookingModal" tabIndex={-1} aria-labelledby="BookingModal" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered modal-xl">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3 className="mb-0">Reserve a table</h3>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body d-flex flex-column justify-content-center">
+              <div className="booking">
+                <form className="booking-form row" onSubmit={handleSubmit}>
                 <div className="col-lg-6 col-12">
                   <label htmlFor="name" className="form-label">Full Name</label>
 
@@ -775,17 +810,7 @@ height={600}
                   />
                 </div>
 
-                <div className="col-lg-6 col-12">
-                  <label htmlFor="date" className="form-label">Date</label>
-
-                  <input
-                    type="date"
-                    name="date"
-                    id="date"
-                    value=""
-                    className="form-control"
-                  />
-                </div>
+            
 
                 <div className="col-lg-6 col-12">
                   <label htmlFor="time" className="form-label">Time</label>
@@ -821,14 +846,13 @@ height={600}
                     Submit Request
                   </button>
                 </div>
-              </form>
+                </form>
+              </div>
             </div>
+            <div className="modal-footer"></div>
           </div>
-
-          <div className="modal-footer"></div>
         </div>
       </div>
-    </div>
 
     <script src="js/jquery.min.js" async></script>
     <script src="js/bootstrap.bundle.min.js" async></script>
