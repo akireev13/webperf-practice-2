@@ -1,0 +1,15 @@
+.card {
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto;
+  flex-direction: column;
+  border-radius: 30px;
+}
+
+.card__name {
+  color: black;
+  text-align: center;
+}

@@ -51,7 +51,7 @@ export default function NavBar() {
                     </li>
             
                     <li className="nav-item">
-                        <Link className="nav-link" href="coctails">Coctails</Link>
+                        <Link className="nav-link" href="cocktails">Cocktails</Link>
                     </li>
                 </ul>
             </div>
