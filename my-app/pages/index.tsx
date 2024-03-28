@@ -109,6 +109,10 @@ export default function Home() {
 
             <li className="nav-item">
               <Link className="nav-link" href="contact.html">Contact</Link>
+              </li>
+              
+              <li className="nav-item">
+              <Link className="nav-link" href="coctails">Coctails</Link>
             </li>
           </ul>
         </div>
