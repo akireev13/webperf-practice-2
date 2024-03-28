@@ -11,3 +11,5 @@
     3. And API endpoint (POST to /api/reserve) to save data from reservations (send to https://httpbin.org/ ): response == in console
     4. Setup deployment to Vercel
     5. Add readme file explaining what was done + commit + push
+
+####Build fixed 28-03-2024

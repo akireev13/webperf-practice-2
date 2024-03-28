@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export default function Home() {
 
@@ -15,7 +15,7 @@ export default function Home() {
     message: ""
   });
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
     try {
@@ -47,13 +47,6 @@ export default function Home() {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
 
 
   return (
